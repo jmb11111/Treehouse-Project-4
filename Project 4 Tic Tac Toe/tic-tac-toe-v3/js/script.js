@@ -1,53 +1,75 @@
-player1= {
-isTurn : true,
-won : false
+player1 = {
+    isTurn: true,
+    won: false
 }
 
-player2= { 
-isTurn : false,
-won : false
+player2 = {
+    isTurn: false,
+    won: false
 }
+$('#player1').attr('class', 'players active');
 
-let boxes = [
- "box0",
- "box1", 
- "box2", 
- "box3", 
- "box4", 
- "box5", 
- 'box6', 
- "box7", 
- "box8"]
+let hoverBoxClass = null;
+let clickedBoxId = null;
+let hoverBoxId = ".box";
 
-turnSelector = function(){
-if (player1.isTurn) {
- 
 
-}else{
-   
-}}
 
-let clickedBox= $(".box").click(function (event) {
-            let clickedBoxId = "#"+event.target.id;
-            if (player1.isTurn) {
-                $(clickedBoxId).attr('class', 'box box-filled-1')
-                player1.isTurn = false;
-                $('#player1').attr('class', 'players active');
-                $('#player2').attr('class', 'players ');
-            } else {
-                $(clickedBoxId).attr('class', 'box box-filled-2')
-                player1.isTurn = true;
-                $('#player2').attr('class', 'players active');
-                $('#player1').attr('class', 'players ');
 
-            }
-             });
+
+$(".box").click(function (event) {
+    clickedBoxId = "#" + event.target.id;
+    if (player1.isTurn) {
+       
+            $(clickedBoxId).attr('class', 'box box-filled-1');
+            $(clickedBoxId).attr('id', clickedBoxId + 'filled');
+            player1.isTurn = false;
+           player2.isTurn = true;
+            $('#player1').attr('class', 'players ');
+            $('#player2').attr('class', 'players active ');
 
         
- 
+    } else if(player2.isTurn) {
+        $(clickedBoxId).attr('class', 'box box-filled-2');
+        $(clickedBoxId).attr('id', clickedBoxId + 'filled');
+        player1.isTurn = true;
+        player2.isTurn = false;
+        $('#player2').attr('class', 'players ');
+        $('#player1').attr('class', 'players active');
 
-            // if(player1.isTurn){
-            //     $("#"+clickedBox.toString()).attr('class', 'box box-filled-1')
-            //     }else {
-            //         $("#"+clickedBox).attr('class', 'box box-filled-2')
-            //     }; 
+    }
+});
+
+
+
+
+    $(".box").hover(event => {
+        hoverBoxId =  event.target.id;
+        hoverBoxClass = event.target.class;   
+        {
+            if (player1.isTurn) { 
+                if (hoverBoxId === "box0"||
+                hoverBoxId === "box1"||
+                hoverBoxId === "box2"||
+                hoverBoxId === "box3"||
+                hoverBoxId === "box4"||
+                hoverBoxId === "box5"||
+                hoverBoxId === "box6"||
+                hoverBoxId === "box7"||
+                hoverBoxId === "box8")
+                $('#'+ hoverBoxId).attr('class', 'box box1');
+            }else if(player2.isTurn){
+                if (hoverBoxId === "box0"||
+                hoverBoxId === "box1"||
+                hoverBoxId === "box2"||
+                hoverBoxId === "box3"||
+                hoverBoxId === "box4"||
+                hoverBoxId === "box5"||
+                hoverBoxId === "box6"||
+                hoverBoxId === "box7"||
+                hoverBoxId === "box8")
+                $('#'+ hoverBoxId).attr('class', 'box box2');
+
+            }
+        };  
+    });

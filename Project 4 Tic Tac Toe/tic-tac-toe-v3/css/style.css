@@ -125,8 +125,10 @@ h1 {
 .boxes {
   width: 480px;
   margin: 3em auto 0; }
-  .boxes .box {
-    background: #EFEFEF;
+  .boxes .box,
+  .box1,
+  .box2 {
+    background-color: #EFEFEF;
     border-radius: 4px;
     width: 150px;
     height: 150px;
@@ -140,13 +142,18 @@ h1 {
     background-size: 100px 100px;
     background-repeat: no-repeat;
     background-position: center center;}
+    .box1:hover{
+      background-image: url(../img/o.svg); }
+    .box2:hover{
+        background-image: url(../img/x.svg); }
+           
     .boxes .box:nth-child(3n) {
       margin-right: 0; }
     .boxes .box-filled-1 {
-      background-color: #FFA000;
-      background-image: url(../img/o.svg); }
+      background-color: #FFA000!important;
+      background-image: url(../img/o.svg)!important; }
     .boxes .box-filled-2 {
-      background-color: #3688C3;
-      background-image: url(../img/x.svg); }
+      background-color: #3688C3!important;
+      background-image: url(../img/x.svg)!important; }
 
 
