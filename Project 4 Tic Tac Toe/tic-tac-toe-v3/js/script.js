@@ -139,9 +139,11 @@ function checkPlayer2Win() {
             (player1.won) {
                 $("#finish").addClass('screen-win-one');
                 MultiScreen.switch_screens({ target_id: 'finish' });
+                document.getElementById("winner").innerHTML = text+"Wins!";
             } else if (player2.won) {
                 $("#finish").addClass('screen-win-two');
                 MultiScreen.switch_screens({ target_id: 'finish' });
+                document.getElementById("winner").innerHTML = "X Wins!";
             }else if (tieGame === true) {
                 $("#finish").addClass('screen-win-tie');
                  MultiScreen.switch_screens({ target_id: 'finish' });
@@ -177,4 +179,12 @@ function checkPlayer2Win() {
             $("#finish").removeClass('screen-win-one');
             $("#finish").removeClass('screen-win-two');
             $("#finish").removeClass('screen-win-tie');
+            }
+let text = null;
+            function getName() {
+                var x = document.getElementById("nameInput");
+                text = "";
+                text += x.value;
+                document.getElementById("player1Name").innerHTML = text;
+                
             }
