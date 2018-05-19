@@ -1,3 +1,5 @@
+$('#player1').attr('class', 'players active');
+
 player1 = {
     isTurn: true,
     won: false
@@ -9,8 +11,6 @@ player2 = {
 }
 
 let tieGame = false;
-$('#player1').attr('class', 'players active');
-
 
 let box0 = null;
 let box1 = null;
@@ -22,7 +22,7 @@ let box6 = null;
 let box7 = null;
 let box8 = null;
 let box9 = null;
-
+let text = null;
 $(".box").click(function (event) {
     if (player1.isTurn && !this.className.includes('box-filled')) {
         $(this).addClass('box-filled-1');
@@ -41,6 +41,7 @@ $(".box").click(function (event) {
         box8 = $("#box8").attr('class');
         box9 = $("#box9").attr('class');
         checkPlayer1Win();
+        checkTie();
         if (player1.won) {
             gameOver();
         }else if(tieGame === true){
@@ -64,6 +65,7 @@ $(".box").click(function (event) {
         box8 = $("#box8").attr('class');
         box9 = $("#box9").attr('class');
         checkPlayer2Win();
+        checkTie();
             if (player2.won) {
                 gameOver();
             }else if(tieGame === true){
@@ -147,6 +149,8 @@ function checkPlayer2Win() {
             }else if (tieGame === true) {
                 $("#finish").addClass('screen-win-tie');
                  MultiScreen.switch_screens({ target_id: 'finish' });
+                 document.getElementById("winner").innerHTML = "Tie Game!!";
+
             }
         }
 
@@ -180,7 +184,7 @@ function checkPlayer2Win() {
             $("#finish").removeClass('screen-win-two');
             $("#finish").removeClass('screen-win-tie');
             }
-let text = null;
+
             function getName() {
                 var x = document.getElementById("nameInput");
                 text = "";
