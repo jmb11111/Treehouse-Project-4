@@ -8,21 +8,19 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
   <!-- link the css and js scripts -->
-  <link href="css/multi-screen-css.css" type="text/css" rel="stylesheet" />
 
 
 </head>
 
 <body>
-  </div>
-  <div class="screen screen-start ms-container ms-default" id="start screen1">
+  <div class="screen screen-start" id="screen1">
     <header id="startHeader">
       <h1>Tic Tac Toe</h1>
-      <a href="javascript:void(0)" data-ms-target="board" class="button ms-nav-link" onclick="getName()">Start game</a></br>
+      <a href="#" class="button" id="startButton" onclick="getName()">Start game</a></br>
       <input id="nameInput" type="text" placeholder="Enter your name" value=""></input>
     </header>
   </div>
-  <div class="ms-container screen board" id="board">
+  <div class="screen board" id="board">
 
     <header>
       <h1 class="screen h1" id="boardH1">Tic Tac Toe</h1>
@@ -66,11 +64,11 @@
       <li class="box" id="box8"></li>
     </ul>
   </div>
-    <div class="ms-container screen screen-win" id="finish">
+    <div class="screen screen-win" id="finish">
       <header id="winHeader">
         <h1>Tic Tac Toe</h1>
         <p class="message" id="winner">WINNER</p>
-        <a href="javascript:void(0)" onclick="newGame()" data-ms-target="board" class="button ms-nav-link" id="newGame">New game</a>
+        <a href="#" onclick="newGame()"  class="button" id="newGame">New game</a>
       </header>
     </div>
 
@@ -81,8 +79,6 @@
 </body>
 <!-- run the plugin -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>
-<script type="text/javascript" src="js/multi-screen.js"></script>
-<script type="text/javascript">$(document).ready(function () { MultiScreen.init(); });</script>
 <script type="text/javascript" src="js/script.js"></script>
 
 
