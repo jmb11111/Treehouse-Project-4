@@ -75,11 +75,9 @@ let boxes = [
  box5 = null,
  box6 = null,
  box7 = null,
- box8 = null,
-
- text = null,
+ box8 = null, 
 ];
-
+let text = null,
 
 $(".box").click(function (event) {
     if (player1.isTurn && !this.className.includes('box-filled')) {
@@ -124,9 +122,6 @@ $(".box").click(function (event) {
     } else if (this.className.includes('box-filled')) {
         alert('That Spot Is Taken!!')
     }
-
-
-
 });
 
 
