@@ -77,7 +77,7 @@ let boxes = [
  box7 = null,
  box8 = null, 
 ];
-let text = null,
+let text = null;
 
 $(".box").click(function (event) {
     if (player1.isTurn && !this.className.includes('box-filled')) {
