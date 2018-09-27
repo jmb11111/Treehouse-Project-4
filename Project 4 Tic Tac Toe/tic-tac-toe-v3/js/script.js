@@ -75,7 +75,8 @@ let boxes = [
   (box7 = null),
   (box8 = null)
 ];
-let text = null;
+let textX = null;
+let textY = null;
 
 $(".box").click(function(event) {
   if (player1.isTurn && !this.className.includes("box-filled")) {
@@ -234,12 +235,12 @@ function gameOver() {
     $(".screen-win").attr("class", "screen screen-win screen-win-one");
     screenWin();
     showScreens();
-    document.getElementById("winner").innerHTML = text + "Wins!";
+    document.getElementById("winner").innerHTML = textX + " Wins!";
   } else if (player2.won) {
     $(".screen-win").attr("class", "screen screen-win screen-win-two");
     screenWin();
     showScreens();
-    document.getElementById("winner").innerHTML = "X Wins!";
+    document.getElementById("winner").innerHTML = textY + " Wins!";
   } else if (tieGame.won) {
     $(".screen-win").attr("class", "screen screen-win  screen-win-tie");
     screenWin();
@@ -265,7 +266,11 @@ function newGame() {
 
 function getName() {
   var x = document.getElementById("nameInput");
-  text = "";
-  text += x.value;
-  document.getElementById("player1Name").innerHTML = text;
+  var y = document.getElementById("nameInput2");
+  textX = "";
+  textX += x.value;
+  textY = "";
+  textY += y.value;
+  document.getElementById("player1Name").innerHTML = textX;
+  document.getElementById("player2Name").innerHTML = textY;
 }
